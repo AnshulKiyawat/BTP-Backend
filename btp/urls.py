@@ -14,8 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path,include
+from django.views.decorators.csrf import csrf_exempt
 from api import login
 
-urlpatterns = [
-    path('api/login/helloWorld',login.sampleHelloWorldApi)
+api_list = [
+    {'url':'login/signup', 'method':login.signUp},
 ]
+
+
+urlpatterns = []
+for api in api_list:
+    urlpatterns.append(path(api['url'], csrf_exempt(api['method'])))

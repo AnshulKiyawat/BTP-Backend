@@ -11,7 +11,7 @@ Executing:
 1. Install python
 2. Install django
 3. Navigate to folder having manage.py
-4. $ python3 manage.py migrate
+4. $ python3 manage.py migrate --run-syncdb
 5. $ python3 manage.py runserver
 
 (Use python2 if you want. Also need to standardize this as syntax is slightly different and will cause compile time problems)

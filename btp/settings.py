@@ -33,12 +33,20 @@ CSRF_COOKIE_SECURE = False
 # Application definition
 
 INSTALLED_APPS = [
+    # FOLDERS
+    'api',
+    'btp',
+    'database_models',
+
+    # DEFAULT INSTALLED
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # TO HANDLE API CALLING
     'corsheaders',
     'rest_framework',
 ]

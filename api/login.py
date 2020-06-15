@@ -21,7 +21,7 @@ def signUp(request):
                 'reason' : "User Already Exists"
             }
         except:
-            if not email.endswith('@lnmiit.ac.in'):    
+            if not email.endswith('@lnmiit.ac.in'):
                 returnJson={
                     'message': "FAILURE",
                     'reason': "Email does not end with '@lnmiit.ac.in'"
@@ -73,5 +73,39 @@ def signUp(request):
             'message': "FAILURE",
             'reason': "Server could not process the data sent."
         }
-        
+
+    return JsonResponse(returnJson)
+
+def login(request):
+    if(request.method=='POST'):
+        input_json = json.loads(request.body)
+
+        email = input_json['email']
+        password = input_json['password']
+        print(email)
+        try:
+            user = Users.objects.get(email=email)
+            if(password == user.password):
+                returnJson={
+                    'message': "SUCCESS",
+                    'reason' : "Correct Login Details"
+                }
+            else:
+                returnJson={
+                    'message': "FAILURE",
+                    'reason' : "Wrong password"
+                }
+        except Exception as e:
+                print(e)
+                returnJson={
+                    'message': "FAILURE",
+                    'reason': "Incorrect user id provided"
+                }
+
+    else:
+        returnJson={
+            'message': "FAILURE",
+            'reason': "Server could not process the data sent."
+        }
+
     return JsonResponse(returnJson)

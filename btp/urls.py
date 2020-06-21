@@ -19,6 +19,7 @@ from api import login
 
 api_list = [
     {'url':'login/signup', 'method':login.signUp},
+    {'url':'login/login', 'method':login.login}
 ]
 
 

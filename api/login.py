@@ -62,7 +62,7 @@ def signUp(request):
                     'reason': "Password should have atleast special symbol among: !,@,#,,$,%,^,&,*,(,)"
                 }
             else:
-                 Users(email=email,password=password,first_name=first_name,last_name=last_name).save()
+                 Users(email=email,password=password,first_name=first_name,middle_name=middle_name,last_name=last_name).save()
                  returnJson={
                     'message': "SUCCESS",
                     'reason': "User created"

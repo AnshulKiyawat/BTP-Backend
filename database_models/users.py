@@ -6,7 +6,8 @@ class Users(models.Model):
     first_name = models.CharField(max_length=200,default='')
     middle_name =models.CharField(max_length=200,default='')
     last_name = models.CharField(max_length=200,default='')
-    profile_description = models.CharField(max_length=1000,default='')
+    phone =models.CharField(max_length=20,default='')
+    profile_description = models.CharField(max_length=1000,default='Default Description')
     gender = models.CharField(max_length=25,default='')
     date_of_birth = models.DateField(blank=True,null=True)
 

@@ -16,10 +16,17 @@ Including another URLconf
 from django.urls import path,include
 from django.views.decorators.csrf import csrf_exempt
 from api import login
-
+from api import posts
+from api import profile
 api_list = [
     {'url':'login/signup', 'method':login.signUp},
-    {'url':'login/login', 'method':login.login}
+    {'url':'login/login', 'method':login.login},
+
+    {'url':'posts/submitpost', 'method':posts.submit_post},
+    {'url':'posts/fetchposts', 'method':posts.fetch_posts},
+
+    {'url':'profile/getprofiledetails', 'method':profile.get_profile_details},
+    {'url':'profile/editprofiledetails', 'method':profile.edit_profile_details}
 ]
 
 

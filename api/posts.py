@@ -54,6 +54,7 @@ def fetch_posts(request):
                 results = []
                 for post in posts:
                     results.append({'email':post.email,'content':post.content,'date_of_post':post.date_of_post})
+                results.reverse()
                 returnJson={
                     'message': "SUCCESS",
                     'reason' : "Successfully added post",

@@ -18,6 +18,8 @@ from django.views.decorators.csrf import csrf_exempt
 from api import login
 from api import posts
 from api import profile
+from api import project
+
 api_list = [
     {'url':'login/signup', 'method':login.signUp},
     {'url':'login/login', 'method':login.login},
@@ -26,7 +28,10 @@ api_list = [
     {'url':'posts/fetchposts', 'method':posts.fetch_posts},
 
     {'url':'profile/getprofiledetails', 'method':profile.get_profile_details},
-    {'url':'profile/editprofiledetails', 'method':profile.edit_profile_details}
+    {'url':'profile/editprofiledetails', 'method':profile.edit_profile_details},
+
+    {'url':'project/createproject', 'method':project.create_project},
+    {'url':'project/fetchprojects', 'method':project.fetch_projects},
 ]
 
 

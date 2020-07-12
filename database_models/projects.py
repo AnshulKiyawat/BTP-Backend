@@ -1,20 +1,23 @@
-# Create tables here
-'''
-project owner table has:
-------------------------
-project_id: (integer)
-owner: email_id (string) of max len 200
-'''
+from django.db import models
 
-'''
-project table has:
-------------------
-title: string of max len 200
-start_date: date
-end_date: date
-skills_required: string of max len 200
-mentor: string of max len 200
-description: string of max len 1000
-project_id : integer
-members: integer
-'''
+class ProjectOwners(models.Model):
+    email =models.CharField(max_length=20,default='')
+    project_id = models.IntegerField(primary_key=True)
+
+
+    def __str__(self):
+        return 'Email Id: "' + self.email +'"'
+
+class Projects(models.Model):
+    title = models.CharField(max_length=200)
+    start_date = models.DateField(blank=True,null=True)
+    end_date = models.DateField(blank=True,null=True)
+    skills_required = models.CharField(max_length=200)
+    mentor = models.CharField(max_length=200,default='')
+    description =models.CharField(max_length=200,default='')
+    project_id = models.IntegerField(primary_key=True)
+    members = models.IntegerField()
+
+
+    def __str__(self):
+        return 'Project Id: "' + str(self.project_id) +'"'
